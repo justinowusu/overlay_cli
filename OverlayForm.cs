@@ -22,7 +22,13 @@ namespace Overlay
         public OverlayForm(Rectangle highlightRect, Screen targetScreen)
         {
             this.targetScreen = targetScreen;
-            this.highlightRect = ConvertToScreenCoordinates(highlightRect, targetScreen);
+            // Convert global coordinates to coordinates relative to this form
+            this.highlightRect = new Rectangle(
+                highlightRect.X - targetScreen.Bounds.X,
+                highlightRect.Y - targetScreen.Bounds.Y,
+                highlightRect.Width,
+                highlightRect.Height
+            );
             
             // Configure form properties for overlay
             this.FormBorderStyle = FormBorderStyle.None;
@@ -31,6 +37,7 @@ namespace Overlay
             this.StartPosition = FormStartPosition.Manual;
             this.Location = targetScreen.Bounds.Location;
             this.Size = targetScreen.Bounds.Size;
+            this.AutoScaleMode = AutoScaleMode.None;
             
             // Start animation
             StartFadeInAnimation();
@@ -47,17 +54,6 @@ namespace Overlay
             }
         }
 
-        private Rectangle ConvertToScreenCoordinates(Rectangle rect, Screen screen)
-        {
-            // The input rectangle is in global screen coordinates
-            // We need to convert it to coordinates relative to the target screen
-            return new Rectangle(
-                rect.X - screen.Bounds.X,
-                rect.Y - screen.Bounds.Y,
-                rect.Width,
-                rect.Height
-            );
-        }
 
         private void UpdateLayeredWindow()
         {

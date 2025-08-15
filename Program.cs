@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -8,9 +9,16 @@ namespace Overlay
 {
     internal class Program
     {
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+        
         [STAThread]
         static void Main(string[] args)
         {
+            // Make the application DPI-aware
+            if (Environment.OSVersion.Version.Major >= 6)
+                SetProcessDPIAware();
+            
             // Parse command line arguments
             if (args.Length != 4)
             {
