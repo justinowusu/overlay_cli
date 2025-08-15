@@ -77,8 +77,8 @@ namespace Overlay
             // Calculate center X position
             int popupX = rect.X + (rect.Width - popupWidth) / 2;
             
-            // Try to position above the rectangle with 8px gap
-            int popupY = rect.Y - popupHeight - 8;
+            // Try to position above the rectangle with 20px gap (increased from 8px)
+            int popupY = rect.Y - popupHeight - 20;
             
             // Convert to screen-relative coordinates
             popupX -= screen.Bounds.X;
@@ -100,8 +100,8 @@ namespace Overlay
             // Check vertical bounds - if no room above, place below
             if (popupY < 10)
             {
-                // Place below the rectangle instead
-                popupY = (rect.Y - screen.Bounds.Y) + rect.Height + 8;
+                // Place below the rectangle instead with same 20px gap
+                popupY = (rect.Y - screen.Bounds.Y) + rect.Height + 20;
             }
             
             // Add screen offset back to get absolute position
