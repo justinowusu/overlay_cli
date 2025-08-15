@@ -1,0 +1,8 @@
+C:\Users\mrjus\source\repos\Overlay\obj\Debug\Overlay.csproj.AssemblyReference.cache
+C:\Users\mrjus\source\repos\Overlay\obj\Debug\Overlay.csproj.CoreCompileInputs.cache
+C:\Users\mrjus\source\repos\Overlay\bin\Debug\Overlay.exe.config
+C:\Users\mrjus\source\repos\Overlay\bin\Debug\Overlay.exe
+C:\Users\mrjus\source\repos\Overlay\bin\Debug\Overlay.pdb
+C:\Users\mrjus\source\repos\Overlay\obj\Debug\Overlay.exe
+C:\Users\mrjus\source\repos\Overlay\obj\Debug\Overlay.pdb
+C:\Users\mrjus\source\repos\Overlay\obj\Debug\Overlay.exe.config
