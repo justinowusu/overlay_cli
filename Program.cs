@@ -20,9 +20,9 @@ namespace Overlay
                 SetProcessDPIAware();
             
             // Parse command line arguments
-            if (args.Length != 4)
+            if (args.Length != 4 && args.Length != 5)
             {
-                Console.WriteLine("Usage: Overlay.exe <x> <y> <width> <height>");
+                Console.WriteLine("Usage: Overlay.exe <x> <y> <width> <height> [message]");
                 Environment.Exit(1);
             }
 
@@ -38,6 +38,9 @@ namespace Overlay
 
             // Create the highlight rectangle
             Rectangle highlightRect = new Rectangle(x, y, width, height);
+            
+            // Get optional message
+            string message = args.Length == 5 ? args[4] : null;
 
             // Find the screen that contains the rectangle
             Screen targetScreen = FindScreenContainingRect(highlightRect);
@@ -56,7 +59,7 @@ namespace Overlay
             Thread.Sleep(150);
 
             // Create and show the overlay form
-            OverlayForm overlayForm = new OverlayForm(highlightRect, targetScreen);
+            OverlayForm overlayForm = new OverlayForm(highlightRect, targetScreen, message);
             overlayForm.Show();
 
             // Run the application

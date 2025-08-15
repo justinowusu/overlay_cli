@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessagePopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OverlayForm.cs">
       <SubType>Form</SubType>
     </Compile>
